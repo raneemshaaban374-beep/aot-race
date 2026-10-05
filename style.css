@@ -1,0 +1,125 @@
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Impact, "Arial Black", sans-serif;
+  color: white;
+}
+
+.sky {
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+  background: linear-gradient(#10183a, #5a3f6e, #f0a35e);   
+}
+.sky h1 {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  margin: 0;
+  font-size: 3vw;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 0 black;
+}
+.sky h1 img { height: 50px; vertical-align: middle; }
+
+.titan {                                  
+  position: absolute;
+  bottom: 0;
+  left: 35%;
+  width: 45vw;
+  filter: drop-shadow(0 0 30px orange);
+}
+
+.cloud {
+  position: absolute;
+  top: 15%;
+  width: 30vw;
+  animation: drift 60s linear infinite;
+}
+
+.bird {
+  position: absolute;
+  top: 30%;
+  width: 60px;
+  animation: fly 20s linear infinite;
+}
+
+
+
+.wall {
+  height: 9vh;
+  border-top: 4px solid #b3a59a;
+  background:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.25) 0 2px, transparent 2px 22px),    
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0 2px, transparent 2px 64px),    
+    linear-gradient(#8a7f78, #4e4642);
+}
+
+.road {
+  position: relative;
+  height: 41vh;
+  background: #3a3a42;
+}
+
+.lane {
+  position: relative;
+  height: 50%;
+  box-sizing: border-box;
+}
+.lane2 { border-top: 4px dashed white; }           
+
+.finish {                                
+  position: absolute;
+  right: 12%;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: repeating-linear-gradient(white 0 15px, black 15px 30px);
+}
+
+.racer {
+  position: absolute;
+  left: 3%;                               
+  bottom: 8px;
+  height: 16vh;
+}
+
+.racer1 {
+  animation: run1 9s linear 2s both,
+             jump 9s ease-out 2s both,
+             bounce 0.3s 2s 30 alternate;     
+}
+.racer2 {
+  animation: run2 9s linear 2s both,
+             bounce 0.25s 2s 36 alternate;    
+}
+
+
+
+.winner {
+  position: fixed;
+  top: 18vh;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 7vw;
+  text-shadow: 4px 4px 0 black;
+  opacity: 0;
+  animation: show 1s 10.5s forwards;
+}
+.winner small { font-size: 1.5vw; letter-spacing: 4px; }
+
+
+
+@keyframes run1 { 0% { left: 3%; } 50% { left: 45%; } 100% { left: 84%; } }
+@keyframes run2 { 0% { left: 3%; } 50% { left: 35%; } 75% { left: 65%; } 100% { left: 86%; } }
+
+@keyframes jump { 0%, 30% { bottom: 8px; } 35% { bottom: 90px; } 40%, 100% { bottom: 8px; } }
+
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-8px); } }
+
+@keyframes show { to { opacity: 1; } }
+
+@keyframes drift { from { left: -35%; } to { left: 105%; } }
+@keyframes fly   { from { left: -10%; } to { left: 110%; } }
